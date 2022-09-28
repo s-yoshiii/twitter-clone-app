@@ -1,5 +1,6 @@
 import React from "react";
 import "./Timeline.scss";
+import TweetBox from "./TweetBox";
 const Timeline = () => {
   return (
     <div className="timeline">
@@ -7,7 +8,7 @@ const Timeline = () => {
       <div className="timeline__header">
         <h2>ホーム</h2>
       </div>
-      {/* Tweetbox */}
+      <TweetBox />
       {/* Post */}
     </div>
   );
