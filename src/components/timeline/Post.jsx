@@ -7,6 +7,7 @@ import {
 } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 import React from "react";
+import "./Post.scss";
 
 const Post = () => {
   return (
@@ -18,20 +19,20 @@ const Post = () => {
         <div className="post__header">
           <h3 className="post__headerText">プログラミングチュートリアル</h3>
           <div className="post__headerSpecial">
-            <VerifiedUser className="post__badge" />
+            <VerifiedUser className="post__badge" sx={{ fontSize: 14 }} />
             @name
           </div>
           <div className="post__headerDiscription">
             <p>テキストテキストテキスト</p>
           </div>
         </div>
-      </div>
-      <img src="https://source.unsplash.com/random/" alt="" />
-      <div className="post__footer">
-        <ChatBubbleOutline fontSize="small" />
-        <Repeat fontSize="small" />
-        <FavoriteBorder fontSize="small" />
-        <PublishOutlined fontSize="small" />
+        <img src="https://source.unsplash.com/random/" alt="" />
+        <div className="post__footer">
+          <ChatBubbleOutline fontSize="small" />
+          <Repeat fontSize="small" />
+          <FavoriteBorder fontSize="small" />
+          <PublishOutlined fontSize="small" />
+        </div>
       </div>
     </div>
   );
