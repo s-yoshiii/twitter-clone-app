@@ -25,7 +25,7 @@ const Sidebar = () => {
       <SidebarOption text="リスト" Icon={ListAltIcon} />
       <SidebarOption text="プロフィール" Icon={PermIdentityIcon} />
       <SidebarOption text="もっと見る" Icon={MoreHorizIcon} />
-      <Button variant="outlined" className="sidebar__tweet">
+      <Button variant="outlined" className="sidebar__tweet" fullWidth>
         ツイートする
       </Button>
     </div>
