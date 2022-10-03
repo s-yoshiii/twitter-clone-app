@@ -9,24 +9,24 @@ import { Avatar } from "@mui/material";
 import React from "react";
 import "./Post.scss";
 
-const Post = () => {
+const Post = ({ displayName, username, verified, text, avatar, image }) => {
   return (
     <div className="post">
       <div className="post__avatar">
-        <Avatar src="" />
+        <Avatar src={avatar} />
       </div>
       <div className="post__body">
         <div className="post__header">
-          <h3 className="post__headerText">プログラミングチュートリアル</h3>
+          <h3 className="post__headerText">{displayName}</h3>
           <div className="post__headerSpecial">
-            <VerifiedUser className="post__badge" sx={{ fontSize: 14 }} />
-            @name
+            <VerifiedUser className="post__badge" sx={{ fontSize: 14 }} />@
+            {username}
           </div>
           <div className="post__headerDiscription">
-            <p>テキストテキストテキスト</p>
+            <p>{text}</p>
           </div>
         </div>
-        <img src="https://source.unsplash.com/random/" alt="" />
+        <img src={image} alt="" />
         <div className="post__footer">
           <ChatBubbleOutline fontSize="small" />
           <Repeat fontSize="small" />
