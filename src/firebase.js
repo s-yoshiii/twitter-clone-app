@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
   authDomain: "twitter-clone-app-9a224.firebaseapp.com",
@@ -9,3 +10,5 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+export default db;
