@@ -2,11 +2,24 @@ import { Avatar, Button } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import "./TweetBox.scss";
+import { collection, addDoc } from "firebase/firestore";
+import db from "../../firebase";
 const TweetBox = () => {
   const [tweetMessage, setTweetMessage] = useState("");
   const [tweetImage, setTweetImage] = useState("");
   const sendTweet = (e) => {
-    // firebaseのデータベースにデータを追加する
+    e.preventDefault();
+    addDoc(collection(db, "posts"), {
+      displayName: "プログラミングチュートリアル",
+      username: "yoshii_s",
+      verified: true,
+      text: tweetMessage,
+      avatar:
+        "https://pbs.twimg.com/profile_images/1504842282121392132/1JiRCd_m_400x400.jpg",
+      image: tweetImage,
+    });
+    setTweetMessage("");
+    setTweetImage("");
   };
   return (
     <div className="tweetBox">
@@ -16,6 +29,7 @@ const TweetBox = () => {
           <input
             type="text"
             placeholder="いまどうしてる？"
+            value={tweetMessage}
             onChange={(e) => setTweetMessage(e.target.value)}
           />
         </div>
@@ -23,6 +37,7 @@ const TweetBox = () => {
           className="tweetBox__imageInput"
           placeholder="画像のURLを入力してください"
           type="text"
+          value={tweetImage}
           onChange={(e) => setTweetImage(e.target.value)}
         />
         <Button
