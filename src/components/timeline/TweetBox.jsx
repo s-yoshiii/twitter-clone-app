@@ -2,7 +2,7 @@ import { Avatar, Button } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import "./TweetBox.scss";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import db from "../../firebase";
 const TweetBox = () => {
   const [tweetMessage, setTweetMessage] = useState("");
@@ -17,6 +17,7 @@ const TweetBox = () => {
       avatar:
         "https://pbs.twimg.com/profile_images/1504842282121392132/1JiRCd_m_400x400.jpg",
       image: tweetImage,
+      timestamp: serverTimestamp(),
     });
     setTweetMessage("");
     setTweetImage("");
