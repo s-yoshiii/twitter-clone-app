@@ -3,13 +3,14 @@ import Post from "./Post";
 import "./Timeline.scss";
 import TweetBox from "./TweetBox";
 import db from "../../firebase";
-import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { collection, orderBy, query, onSnapshot } from "firebase/firestore";
 const Timeline = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     const postData = collection(db, "posts");
     const q = query(postData, orderBy("timestamp", "desc"));
-    getDocs(q).then((querySnapshot) => {
+    // リアルタイムでデータを取得
+    onSnapshot(q, (querySnapshot) => {
       setPosts(querySnapshot.docs.map((doc) => doc.data()));
     });
   }, []);
