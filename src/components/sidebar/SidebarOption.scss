@@ -9,6 +9,9 @@
     border-radius: 30px;
     color: var(--twitter-color);
   }
+  &--active {
+    color: var(--twitter-color);
+  }
   & > .MuiSvgIcon-root {
     margin-right: 20px;
   }
